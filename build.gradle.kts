@@ -18,6 +18,7 @@ dependencies {
 	implementation(compose.desktop.currentOs)
 	implementation("it.skrape:skrapeit:1.3.0-alpha.1")
 	implementation("org.reflections:reflections:0.10.2")
+	implementation("commons-httpclient:commons-httpclient:3.1")
 }
 
 compose.desktop {

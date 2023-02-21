@@ -50,24 +50,26 @@ fun ClassesScreen(navController: NavController) {
 				                   return@onKeyEvent true
 			                   }
 			                   false
-		                   }.height(300.dp).width(740.dp)) {
+		                   }.height(330.dp).width(740.dp)) {
 			AppData.platform.value.cur_registration.value!!.cur_subject.value?.classes?.value?.forEach {
 				item {
-					Card(modifier = Modifier.padding(8.dp).clickable {
-						try {
-							it.enrolled.value = !it.enrolled.value
-							AppData.platform.value.cur_registration.value!!.cur_subject.value!!.markProcessClass(
-									it.id,
-									it.enrolled.value)
+					Card(modifier = Modifier.padding(8.dp)
+						.clickable(enabled = it.can_enroll) {
+							try {
+								it.enrolled.value = !it.enrolled.value
+								AppData.platform.value.cur_registration.value!!.cur_subject.value!!.markProcessClass(
+										it.type,
+										it.run { if (it.enrolled.value) it.id else null })
+							}
+							catch (e: Exception) {
+								AppData.last_exception.value = e
+							}
 						}
-						catch (e: Exception) {
-							AppData.last_exception.value = e
-						}
-					}.run {
-						if (it.id == AppData.platform.value.cur_registration.value!!.subjects.first().id) this.focusRequester(
-								AppData.focus_req)
-						else this
-					},
+						.run {
+							if (it.id == AppData.platform.value.cur_registration.value!!.subjects.first().id) this.focusRequester(
+									AppData.focus_req)
+							else this
+						},
 					     backgroundColor = if (it.enrolled.value) Color(0,
 					                                                    255,
 					                                                    0,
@@ -80,6 +82,7 @@ fun ClassesScreen(navController: NavController) {
 							Text(text = "Num Lessons: ${it.num_lessons}")
 							Text(text = "Num Vacancies: ${it.vacancies}")
 							Text(text = "Is Enrolled: ${it.enrolled.value}")
+							Text(text = "Can Enroll: ${it.can_enroll}")
 						}
 					}
 				}
@@ -91,6 +94,8 @@ fun ClassesScreen(navController: NavController) {
 			Button(onClick = {
 				try {
 					AppData.platform.value.cur_registration.value!!.cur_subject.value!!.process()
+					AppData.platform.value.cur_registration.value!!.setSubject(
+							null)
 					navController.navigateBack()
 				}
 				catch (e: Exception) {

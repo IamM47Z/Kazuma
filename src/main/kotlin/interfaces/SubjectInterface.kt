@@ -17,6 +17,6 @@ interface SubjectInterface {
 	val classes: MutableState<MutableList<Class>>
 	
 	fun parse()
-	fun markProcessClass(id: Long, mark: Boolean)
+	fun markProcessClass(type: Class.Type, id: Long?)
 	fun process()
 }
