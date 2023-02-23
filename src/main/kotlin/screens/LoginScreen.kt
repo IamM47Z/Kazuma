@@ -2,6 +2,8 @@ package screens
 
 import interfaces.PlatformInterface
 
+import screens.navigation.NavController
+
 import androidx.compose.runtime.*
 import androidx.compose.material.*
 import androidx.compose.ui.unit.dp
@@ -18,7 +20,6 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-import screens.navigation.NavController
 
 @Composable
 @OptIn(ExperimentalComposeUiApi::class)

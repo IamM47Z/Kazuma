@@ -2,7 +2,9 @@ package platforms.nonio
 
 import classes.Exceptions
 import classes.Registration
+
 import interfaces.ParserInterface
+import interfaces.RegistrationInterface
 
 import java.util.*
 
@@ -19,7 +21,7 @@ open class Parser : ParserInterface, SessionManager() {
 	override var parse_date: MutableState<Date?> = mutableStateOf(null)
 	override var registrations: MutableState<MutableList<Registration>> = mutableStateOf(
 			mutableListOf())
-	override var cur_registration: MutableState<RegistrationManager?> = mutableStateOf(
+	override var cur_registration: MutableState<RegistrationInterface?> = mutableStateOf(
 			null)
 	
 	override fun parse() {

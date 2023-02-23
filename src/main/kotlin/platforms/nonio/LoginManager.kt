@@ -1,8 +1,7 @@
 package platforms.nonio
 
-import AppData
-import androidx.compose.runtime.MutableState
 import classes.Exceptions
+
 import interfaces.LoginInterface
 
 import it.skrape.fetcher.*
@@ -14,6 +13,7 @@ import java.util.regex.Pattern
 import java.net.HttpURLConnection
 import java.io.ByteArrayOutputStream
 
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.res.loadImageBitmap
 import androidx.compose.ui.graphics.painter.BitmapPainter

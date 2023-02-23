@@ -1,8 +1,9 @@
 package platforms.nonio
 
 import classes.Class
-import classes.Exceptions
 import classes.Subject
+import classes.Exceptions
+
 import interfaces.SubjectInterface
 
 import java.net.URI

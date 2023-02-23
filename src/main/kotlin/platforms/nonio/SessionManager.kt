@@ -1,6 +1,5 @@
 package platforms.nonio
 
-
 import interfaces.SessionInterface
 
 open class SessionManager : SessionInterface, LoginManager() {

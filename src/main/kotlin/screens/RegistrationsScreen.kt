@@ -1,6 +1,6 @@
 package screens
 
-import Theme
+import screens.navigation.NavController
 
 import androidx.compose.material.*
 import androidx.compose.ui.unit.dp
@@ -16,10 +16,8 @@ import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
-import screens.navigation.NavController
 
 @Composable
 @OptIn(ExperimentalComposeUiApi::class, ExperimentalMaterialApi::class)
